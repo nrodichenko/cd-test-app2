@@ -12,11 +12,15 @@ REGISTRY_URL = f"http://{DOCKER_REGISTRY}/"
 DOCKER_USERNAME = "username"
 DOCKER_PASSWORD = "3133"
 COMPOSE_FILE_PATH = 'docker-compose.yml'
+GIT_COMMIT_HASH = GIT_COMMIT_HASH_TEMPLATE
+GIT_TAG = GIT_TAG_TEMPLATE 
+
+
 client = docker.from_env()
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('index.html', git_hash=GIT_COMMIT_HASH, git_tag=GIT_TAG)
 
 @app.route('/check_updates', methods=['POST'])
 def check_updates():
