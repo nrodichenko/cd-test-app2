@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docker Image Updater</title>
+</head>
+<body>
+    <h1>Docker Image Updater</h1>
+    <form method="post" action="/check_updates">
+        <button type="submit">Check for Updates</button>
+    </form>
+    <form method="post" action="/update_images">
+        {% if updates %}
+        <h2>Available Updates:</h2>
+        <ul>
+            {% for update in updates %}
+            <li>
+                {{ update }}
+                <input type="checkbox" name="images" value="{{ update.split(' ')[3] }}" checked>
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Update Selected Images</button>
+        {% endif %}
+    </form>
+    {% if output %}
+        <h2>Update Results:</h2>
+        <ul>
+            {% for line in output %}
+                <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
