@@ -69,7 +69,7 @@ FROM scratch
 # Copy the compiled binary
 COPY --from=builder /app/app2.dist/ /
 
-COPY --from=builder /app/cd-test-app2/index.html /
+COPY --from=builder /app/cd-test-app2/templates/ /
 COPY --from=builder /app/cd-test-app2/docker-compose.yml /
 
 # Command to run the application
