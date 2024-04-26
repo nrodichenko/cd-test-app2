@@ -69,5 +69,7 @@ FROM scratch
 # Copy the compiled binary
 COPY --from=builder /app/app2.dist/ /
 
+COPY --from=builder /app/cd-test-app2/index.html /
+
 # Command to run the application
 CMD ["/app2.bin"]
