@@ -62,6 +62,8 @@ RUN cp /usr/lib/x86_64-linux-gnu/libz.so.1 ./app2.dist/
 RUN upx -9 ./app2.dist/app2.bin
 
 RUN ls ./app2.dist/
+RUN ls /app/cd-test-app2/
+RUN ls /app/cd-test-app2/templates
 
 # Start from a scratch image
 FROM scratch
@@ -69,7 +71,7 @@ FROM scratch
 # Copy the compiled binary
 COPY --from=builder /app/app2.dist/ /
 
-COPY --from=builder /app/cd-test-app2/templates/ /
+COPY --from=builder /app/cd-test-app2/templates/ /templates/
 COPY --from=builder /app/cd-test-app2/docker-compose.yml /
 
 # Command to run the application

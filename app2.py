@@ -9,7 +9,7 @@ app = Flask(__name__)
 DOCKER_REGISTRY = "localhost:5100"
 DOCKER_USERNAME = "username"
 DOCKER_PASSWORD = "3133"
-COMPOSE_FILE_PATH = '/docker-compose.yml'
+COMPOSE_FILE_PATH = 'docker-compose.yml'
 client = docker.from_env()
 
 @app.route('/', methods=['GET'])
