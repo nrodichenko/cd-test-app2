@@ -36,7 +36,7 @@ ARG GITHUB_TOKEN
 RUN echo "machine github.com login $GITHUB_TOKEN" > ~/.netrc
 
 # Clone and prepare application
-RUN git clone --recurse-submodules https://github.com/nrodichenko/cd-test-release.git .
+RUN git clone -b stable --recurse-submodules https://github.com/nrodichenko/cd-test-app2.git
 
 RUN pip install -r cd-test-app2/requirements.txt
 
