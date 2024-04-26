@@ -19,8 +19,10 @@ def index():
 @app.route('/check_updates', methods=['POST'])
 def check_updates():
     images = read_docker_compose_images(COMPOSE_FILE_PATH)
+    print(images)
     updates = []
     for image in images:
+        print(image)
         current_image = client.images.get(image)
         try:
             client.images.pull(image)
