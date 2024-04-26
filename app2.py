@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Configuration
 DOCKER_REGISTRY = "localhost:5100"
-REGISTRY_URL = f"http://{DOCKER_REGISTRY}/v2/"
+REGISTRY_URL = f"http://{DOCKER_REGISTRY}/"
 DOCKER_USERNAME = "username"
 DOCKER_PASSWORD = "3133"
 COMPOSE_FILE_PATH = 'docker-compose.yml'
