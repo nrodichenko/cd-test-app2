@@ -6,6 +6,18 @@
 </head>
 <body>
     <h1>Docker Image Updater</h1>
+    <form method="post" action="/check_docker_daemon">
+        <button type="submit">check_docker_daemon</button>
+    </form>
+    {{ ret1 }}
+    <form method="post" action="/check_registry_reachability">
+        <button type="submit">check_registry_reachability</button>
+    </form>
+    {{ ret2 }}
+    <form method="post" action="/authenticate_registry">
+        <button type="submit">authenticate_registry</button>
+    </form>
+    {{ ret3 }}
     <form method="post" action="/check_updates">
         <button type="submit">Check for Updates</button>
     </form>
