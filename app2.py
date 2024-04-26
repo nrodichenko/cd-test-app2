@@ -9,12 +9,12 @@ app = Flask(__name__)
 DOCKER_REGISTRY = "localhost:5100"
 DOCKER_USERNAME = "username"
 DOCKER_PASSWORD = "3133"
-COMPOSE_FILE_PATH = 'docker-compose.yml'
+COMPOSE_FILE_PATH = '/docker-compose.yml'
 client = docker.from_env()
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('/index.html')
 
 @app.route('/check_updates', methods=['POST'])
 def check_updates():
@@ -43,7 +43,7 @@ def update_images():
             output.append(f"Updated {image}: {response}")
         except APIError as e:
             output.append(f"Failed to update {image}: {str(e)}")
-    return render_template('index.html', output=output)
+    return render_template('/index.html', output=output)
 
 def read_docker_compose_images(compose_path):
     with open(compose_path, 'r') as file:

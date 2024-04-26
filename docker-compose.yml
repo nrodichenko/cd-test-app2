@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    networks:
+      - backend
+
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - backend
+
+  app1:
+    image: localhost:5100/app1:release
+    ports:
+      - "5005:5000"
+    volumes:
+      - ./logs/app1:/logs
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - backend
+
+# Define other applications similarly if they are separate services
+
+networks:
+  host:
+    external: true
+  backend:
+    external:
+      name: bridge-net
+
+volumes:
+  mongodb-data:
