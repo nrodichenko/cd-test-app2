@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import docker
 from docker.errors import APIError
 import yaml
+import requests
 
 app = Flask(__name__)
 
