@@ -12,9 +12,9 @@ REGISTRY_URL = f"http://{DOCKER_REGISTRY}/"
 DOCKER_USERNAME = "username"
 DOCKER_PASSWORD = "3133"
 COMPOSE_FILE_PATH = 'docker-compose.yml'
-git_commit_hash = {{GIT_COMMIT_HASH}}
-git_tag = {{GIT_TAG}}
-git_commit_date = {{GIT_COMMIT_DATE}}
+git_commit_hash = "{{GIT_COMMIT_HASH}}"
+git_tag = "{{GIT_TAG}}"
+git_commit_date = "{{GIT_COMMIT_DATE}}"
 
 
 client = docker.from_env()
